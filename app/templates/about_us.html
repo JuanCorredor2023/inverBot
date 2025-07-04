@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Nosotros – AI Stock Predictor{% endblock %}
+
+{% block content %}
+<section class="py-5 bg-light text-black">
+  <div class="container">
+    <h2 class="text-center mb-5">Nuestro equipo</h2>
+    <div class="row g-4 text-center">
+      {% set members = [
+        {'name': 'María López', 'role': 'ML Engineer', 'img': 'https://via.placeholder.com/150'},
+        {'name': 'Juan Pérez', 'role': 'Data Scientist', 'img': 'https://via.placeholder.com/150'},
+        {'name': 'Ana Gómez', 'role': 'Backend Engineer', 'img': 'https://via.placeholder.com/150'},
+        {'name': 'Carlos Ruiz', 'role': 'DevOps & Frontend', 'img': 'https://via.placeholder.com/150'},
+      ] %}
+      {% for m in members %}
+      <div class="col-sm-6 col-lg-3">
+        <div class="card h-100 shadow-sm border-0">
+          <img src="{{ m.img }}" class="card-img-top" alt="{{ m.name }}" />
+          <div class="card-body bg-black text-white">
+            <h5 class="card-title">{{ m.name }}</h5>
+            <p class="card-text">{{ m.role }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
