@@ -2,53 +2,619 @@
 {% block title %}Inicio – AI Stock Predictor{% endblock %}
 
 {% block content %}
-<section class="hero text-white d-flex align-items-center">
-  <div class="container">
-    <div class="row justify-content-center text-center">
-      <div class="col-lg-8">
-        <h1 class="display-4 fw-bold mb-3">
-          Predicción bursátil <span class="gradient-text">hora a hora</span>
-        </h1>
-        <p class="lead mb-4">
-          Nuestro modelo de IA analiza datos históricos y señales del mercado para
-          predecir el comportamiento de <strong>7 acciones clave</strong> cada
-          hora, ayudándote a tomar decisiones informadas.
-        </p>
-        <a href="/demo" class="btn btn-lg btn-primary me-2">Ver demo</a>
-        <a href="/about_us" class="btn btn-lg btn-outline-light">Conócenos</a>
+<section class="relative text-center py-48 px-6 bg-gradient-to-br from-[#0f1234] via-[#10172a] to-[#0f1234] overflow-hidden text-white">
+
+  <!-- 🌌 Fondo animado con bodymovin -->
+  <div id="bgLottieHero" class="absolute inset-0 w-full h-full opacity-40 pointer-events-none z-0" style="width:100%; height:100%;"></div>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    lottie.loadAnimation({
+      container: document.getElementById('bgLottieHero'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets10.lottiefiles.com/packages/lf20_k86wxpgr.json'
+    });
+  });
+  </script>
+
+  <!-- 🪩 Orbes decorativos -->
+  <div class="absolute -top-20 left-1/3 w-[400px] h-[400px] bg-purple-500/30 blur-3xl rounded-full opacity-30 animate-pulse z-0"></div>
+  <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-indigo-400/20 blur-2xl rounded-full opacity-20 animate-ping z-0"></div>
+
+  <!-- 🔤 Contenido principal -->
+  <div class="relative z-10 max-w-6xl mx-auto">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6 leading-tight drop-shadow-xl" data-aos="fade-down">
+      Predicción Inteligente del Mercado
+    </h1>
+
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+      IA Financiera potenciada con <span class="text-purple-400 font-semibold">LSTM</span> o <span class="text-purple-400 font-semibold">GRU</span>, para anticipar comportamientos bursátiles con precisión.
+    </p>
+
+    <!-- 🧠 Tarjeta de hipótesis -->
+    <div class="mt-16 max-w-4xl mx-auto px-6" data-aos="zoom-in-up" data-aos-delay="300">
+      <div class="bg-white/5 backdrop-blur-md shadow-2xl border border-white/10 rounded-3xl p-8 flex flex-col md:flex-row items-center gap-6 hover:shadow-purple-900/30 transition duration-500">
+        
+        <!-- Lottie icon -->
+        <div class="w-24 md:w-28 flex-shrink-0">
+          <lottie-player
+          src="https://assets5.lottiefiles.com/packages/lf20_w51pcehl.json"
+          background="transparent"
+          speed="1"
+          loop
+          autoplay
+          style="width: 150px; height: 150px;">
+          </lottie-player> 
+        </div>
+
+        <!-- Texto de la hipótesis -->
+        <div class="text-left md:text-justify">
+          <h1 class="text-4xl text-purple-300 font-bold mb-3">¿Cuánto ganarías si vieras el futuro?</h1>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-3 tracking-wide">
+            Nuestra hipótesis
+          </h2>
+          <p class="text-gray-300 text-lg leading-relaxed tracking-wide">
+            Nuestra hipótesis sostiene que las redes neuronales <span class="text-purple-400 font-semibold">con memoria a largo plazo</span> no solo aprenden del pasado, sino que anticipan el futuro detectando patrones invisibles para el ser humano.
+          </p>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="features py-5 bg-light">
-  <div class="container">
-    <div class="row text-center g-4">
-      <div class="col-md-4">
-        <i class="bi bi-graph-up-arrow fs-1 text-primary"></i>
-        <h3 class="mt-3 ">Predicciones precisas</h3>
-        <p>
-          Algoritmos de aprendizaje profundo entrenados con miles de horas de
-          datos bursátiles.
-        </p>
+
+<!-- SECCIÓN: Línea del tiempo de predicción interactiva -->
+<section class="relative py-32 px-6 bg-gradient-to-b from-[#0f1234] to-[#10172a] text-white overflow-hidden">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-6xl font-bold text-center mb-16" data-aos="fade-down">
+      <span class="text-6xl text-purple-300 font-bold mb-3">Ruta</span> para pedecir el futuro 
+    </h2>
+
+    <div class="relative border-l border-purple-600 pl-10 space-y-24">
+
+      <!-- 🔵 Paso 1 -->
+      <div class="relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute -left-6 top-2 w-12 h-12 flex items-center justify-center"></div>
+        <h3 class="text-2xl font-bold mb-2"> <span aria-hidden="true" class="mr-1">📥</span> Recolección de datos</h3>
+        <p class="text-gray-300">La IA accede a series históricas, volúmenes, precios y noticias del mercado.</p>
+
+        <button onclick="toggleInfo('info1')" class="mt-4 px-4 py-1 bg-purple-700 hover:bg-purple-800 rounded-full text-sm transition">
+          Ver más
+        </button>
+        <div id="info1" class="hidden mt-4 bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-md text-sm">
+          <ul class="list-disc pl-5 text-gray-300 space-y-1">
+            <li>Extraer la información OHLCV de la acción desde yFinance</li>
+            <li>Realizar scraping de las noticias que mencionan la acción en Business Insider</li>
+            <li>Calcular el sentimiento de cada artículo con finBERT</li>
+            <li>Aplicar un promedio móvil al sentimiento obtenido para suavizar las fluctuaciones</li>
+            <li>Guardar el conjunto de datos (mercado, noticias y sentimiento agregado) en un archivo CSV</li>
+            <a href="https://drive.google.com/file/d/1w6w5WOkI3cS1TfybSpAPAoAQJ6BORFGz/view?usp=sharing" target="_blank" rel="noopener noreferrer"class="mt-3 px-3 py-1 bg-purple-600 text-white text-xs rounded hover:bg-purple-700">Ir a datos</a>
+          </ul>
+        </div>
       </div>
-      <div class="col-md-4">
-        <i class="bi bi-clock-history fs-1 text-primary"></i>
-        <h3 class="mt-3">Actualización horaria</h3>
-        <p>
-          Datos frescos y pronósticos cada 60 minutos para que no pierdas
-          oportunidades.
-        </p>
+
+      <!-- 🔵 Paso 2 -->
+      <div class="relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute -left-6 top-2 w-12 h-12 flex items-center justify-center"></div>
+        <h3 class="text-2xl font-bold mb-2">🧼 Preprocesamiento</h3>
+        <p class="text-gray-300">Los datos se limpian, normalizan y se extraen las características más relevantes.</p>
+
+        <button onclick="toggleInfo('info2')" class="mt-4 px-4 py-1 bg-blue-700 hover:bg-blue-800 rounded-full text-sm transition">
+          Ver más
+        </button>
+        <div id="info2" class="hidden mt-4 bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-md text-sm">
+          <ul class="list-disc pl-5 text-gray-300 space-y-1">
+            <li>Las variables numéricas fueron transformadas utilizando <span class="text-yellow-300">MinMaxScaler</span>, llevándolas a un rango de 0 a 1</li>
+            <li>Reutilizar los mismos escaladores para transformar los conjuntos de validación y prueba, evitando fugas de información.</li>
+            <li>Los escaladores fueron guardados con joblib para asegurar su reutilización en inferencia, reentrenamiento o despliegue.</li>
+          </ul>
+        </div>
       </div>
-      <div class="col-md-4">
-        <i class="bi bi-bar-chart-fill fs-1 text-primary"></i>
-        <h3 class="mt-3">Visualización clara</h3>
-        <p>
-          Gráficas interactivas que facilitan comprender tendencias y
-          volatilidad.
+
+      <div class="relative" data-aos="fade-up" data-aos-delay="200">
+        <div class="absolute -left-6 top-2 w-12 h-12 flex items-center justify-center"></div>
+        <h3 class="text-2xl font-bold mb-2">📊 Experimento de Modelos</h3>
+        <p class="text-gray-300">
+          Estructuramos un experimento en 12 bloques (A–L) para evaluar distintas arquitecturas, combinaciones de hiperparámetros y técnicas de optimización, comparando precisión, rendimiento y eficiencia en series financieras.
         </p>
+      
+        <button onclick="toggleInfo('infoExperiment')" class="mt-4 px-4 py-1 bg-red-700 hover:bg-red-800 rounded-full text-sm transition">
+          Ver más
+        </button>
+      
+        <div id="infoExperiment" class="hidden mt-4 bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-md text-sm">
+          <ul class="list-disc pl-5 text-gray-300 space-y-1">
+            <li>Definición de líneas base con LSTM y GRU para medir RMSE y latencia</li>
+            <li>Comparación de arquitecturas: CNN+GRU, TCN, TFT, GNN</li>
+            <li>Barridos de hiperparámetros (profundidad, unidades, dropout, learning rate)</li>
+            <li>Comparativa de métricas clave: MAE/RMSE/MAPE, velocidad de inferencia y robustez</li>
+            <a href="https://drive.google.com/drive/folders/14r_VllooPhI0h9_GUEo3_JF28U4A6_R7?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-3 px-3 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700">Ver experimentos</a>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 🔵 Paso 3 -->
+      <div class="relative" data-aos="fade-up" data-aos-delay="300">
+        <div class="absolute -left-6 top-2 w-12 h-12 flex items-center justify-center"></div>
+        <h3 class="text-2xl font-bold mb-2">🧠 Aprendizaje profundo</h3>
+        <p class="text-gray-300">
+          Decidimos usar redes neuronales LSTM y GRU ya que dieron los mejores resultados en los experimentos.
+        </p>
+      
+        <button onclick="toggleInfo('info3')" class="mt-4 px-4 py-1 bg-indigo-700 hover:bg-indigo-800 rounded-full text-sm transition">
+          Ver más
+        </button>
+      
+        <div id="info3" class="hidden mt-4 bg-white/10 p-4 rounded-xl border border-white/20 backdrop-blur-md text-sm">
+          <p class="text-gray-300 mb-2">
+            <span class="font-semibold text-purple-400">LSTM (Long Short-Term Memory)</span> es un tipo de red neuronal recurrente diseñada para capturar dependencias de largo plazo en datos secuenciales. Utiliza tres puertas (entrada, olvido y salida) que controlan el flujo de información en cada paso de tiempo. Es especialmente útil en series temporales complejas con retardos o patrones prolongados.
+          </p>
+          <p class="text-gray-300">
+            <span class="font-semibold text-purple-400">GRU (Gated Recurrent Unit)</span> es una variante más simple de las redes LSTM, que combina las puertas de entrada y olvido en una sola estructura. Requiere menos parámetros, lo que lo hace más rápido y eficiente en entrenamiento. Ofrece un rendimiento comparable al LSTM, especialmente en tareas donde las dependencias no son tan largas.
+          </p>
+          <a href="https://drive.google.com/drive/folders/1d90oV0UghNv-M2zxsBKG23MvfWx31mbF?usp=drive_link" target="_blank" rel="noopener noreferrer" class="mt-3 px-3 py-1 bg-indigo-600 text-white text-xs rounded hover:bg-indigo-700">Ver modelos</a>
+        </div>
+      </div>
+
+      <!-- 🔵 Paso 4 -->
+      <div class="relative" data-aos="fade-up" data-aos-delay="400">
+        <div class="absolute -left-6 top-2 w-12 h-12 flex items-center justify-center"></div>
+        <h3 class="text-2xl font-bold mb-2">📈 Resultados</h3>
+        <p class="text-gray-300">El modelo genera una predicción visual del comportamiento futuro de la acción.</p>
+
+        <a href="/dashboard" class="mt-4 px-4 py-1 bg-yellow-700 hover:bg-yellow-800 rounded-full text-sm transition">
+          Ver más
+        </a>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Script para mostrar/ocultar info -->
+<script>
+  function toggleInfo(id) {
+    const elemento = document.getElementById(id);
+    elemento.classList.toggle('hidden');
+    elemento.classList.toggle('animate-fade-in');
+  }
+</script>
+
+<!-- Extra Tailwind animation (opcional si no la tienes) -->
+<style>
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in-out forwards;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<script>
+  let miniGrafico;
+
+  function renderMiniGrafico() {
+    const ctx = document.getElementById('miniGrafico');
+    if (miniGrafico) {
+      miniGrafico.destroy(); // evita múltiples renderizados
+    }
+
+    const datos = Array.from({ length: 12 }, (_, i) => 100 + Math.sin(i / 2) * 10 + Math.random() * 5);
+    const etiquetas = [...Array(12)].map((_, i) => {
+      const d = new Date();
+      d.setMonth(d.getMonth() + i);
+      return d.toLocaleString('default', { month: 'short' });
+    });
+
+    miniGrafico = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: etiquetas,
+        datasets: [{
+          label: 'Predicción mensual',
+          data: datos,
+          borderColor: '#facc15',
+          backgroundColor: 'rgba(250, 204, 21, 0.2)',
+          pointRadius: 3,
+          pointHoverRadius: 5,
+          tension: 0.3,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          x: {
+            ticks: { color: '#ccc' },
+            grid: { display: false }
+          },
+          y: {
+            ticks: { color: '#ccc' },
+            grid: { color: '#333' }
+          }
+        }
+      }
+    });
+  }
+</script>
+
+
+
+
+<!-- SECCIÓN: Comparación de Modelos con doble gráfica -->
+<section class="relative py-32 px-6 bg-gradient-to-b from-[#0f1234] to-[#10172a] text-white">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-4" data-aos="fade-down">Comparativa de Modelos</h2>
+     <p class="text-lg text-gray-300 mb-12" data-aos="fade-up" data-aos-delay="100">
+      Visualiza el rendimiento de cada arquitectura en <span class="text-yellow-400 font-semibold">entrenamiento</span> y <span class="text-purple-400 font-semibold">validación</span.</p>
+    <!-- Contenedor de gráficas -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <!-- Gráfica Entrenamiento -->
+      <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10" data-aos="fade-right" data-aos-delay="200">
+        <h3 class="text-2xl font-semibold mb-4">📘 Resultados en Entrenamiento <br>(promedio MAPE)</h3>
+        <canvas id="chartEntrenamiento"></canvas>
+      </div>
+
+      <!-- Gráfica Test -->
+      <div class="bg-white/5 backdrop-blur-md rounded-2xl p-6 border border-white/10" data-aos="fade-left" data-aos-delay="200">
+        <h3 class="text-2xl font-semibold mb-4">📗 Resultados en Test <br>(promedio MAPE)</h3>
+        <canvas id="chartTest"></canvas>
+      </div>
+    </div>
+  </div>
+
+<!-- LEYENDA VISUAL -->
+<div class="max-w-4xl mx-auto mt-16 px-6" data-aos="fade-up" data-aos-delay="300">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-left bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 shadow-xl">
+    
+    <!-- GRU 1L -->
+    <div class="flex items-center gap-4">
+      <div class="w-5 h-5 rounded-full bg-[#8b5cf6]"></div>
+      <div>
+        <p class="text-white font-semibold">GRU 1L</p>
+        <p class="text-sm text-gray-400">Unidad Recurrente simple (1 capa)</p>
+      </div>
+    </div>
+
+    <!-- LSTM 1L -->
+    <div class="flex items-center gap-4">
+      <div class="w-5 h-5 rounded-full bg-[#ec4899]"></div>
+      <div>
+        <p class="text-white font-semibold">LSTM 1L</p>
+        <p class="text-sm text-gray-400">Red de memoria a largo plazo (1 capa)</p>
+      </div>
+    </div>
+
+    <!-- TCN -->
+    <div class="flex items-center gap-4">
+      <div class="w-5 h-5 rounded-full bg-[#facc15]"></div>
+      <div>
+        <p class="text-white font-semibold">TCN</p>
+        <p class="text-sm text-gray-400">Red convolucional temporal</p>
+      </div>
+    </div>
+
+    <!-- GRU 2L -->
+    <div class="flex items-center gap-4">
+      <div class="w-5 h-5 rounded-full bg-[#0ea5e9]"></div>
+      <div>
+        <p class="text-white font-semibold">GRU 2L</p>
+        <p class="text-sm text-gray-400">GRU multicapa (2 capas)</p>
+      </div>
+    </div>
+
+    <!-- LSTM 2L -->
+    <div class="flex items-center gap-4">
+      <div class="w-5 h-5 rounded-full bg-[#10b981]"></div>
+      <div>
+        <p class="text-white font-semibold">LSTM 2L</p>
+        <p class="text-sm text-gray-400">LSTM multicapa (2 capas)</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="max-w-5xl mx-auto text-center mb-12" data-aos="fade-up" data-aos-delay="400">
+  <h3 class="text-4xl font-bold text-white mb-4">Comparación de modelos de predicción</h3
+  <p class="text-gray-300 text-lg leading-relaxed"> Esta visualización compara el rendimiento de cinco arquitecturas de redes neuronales en tareas de predicción bursátil.
+    <span class="text-purple-300 font-semibold">GRU</span> y <span class="text-pink-300 font-semibold">LSTM</span> son modelos recurrentes ideales para series temporales,
+    mientras que <span class="text-yellow-300 font-semibold">TCN</span> ofrece una alternativa basada en convoluciones temporales.
+    Aquí puedes observar su desempeño tanto en entrenamiento como en prueba.</p>
+</div>
+</section>
+
+<!-- Script para gráficas -->
+<script>
+  const modelos = ["GRU 1L", "LSTM 1L", "TCN", "GRU 2L", "LSTM 2L"];
+  const colores = ["#8b5cf6", "#ec4899", "#facc15", "#0ea5e9", "#10b981"];
+
+  // Datos simulados (reemplaza con tus métricas reales)
+  const datosEntrenamiento = [0.84, 0.88, 1.11, 0.82, 0.97];
+  const datosTest = [0.72, 0.81, 1.84, 0.75, 0.94];
+
+  function crearGrafico(idCanvas, label, data) {
+    const ctx = document.getElementById(idCanvas).getContext("2d");
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: modelos,
+        datasets: [{
+          label,
+          data,
+          backgroundColor: colores,
+          borderRadius: 10
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return `Puntaje: ${context.parsed.y}`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            ticks: { color: "#ddd" },
+            grid: { display: false }
+          },
+          y: {
+            beginAtZero: true,
+            max: 1,
+            ticks: { color: "#ddd" },
+            grid: { color: "#374151" }
+          }
+        }
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    crearGrafico("chartEntrenamiento", "Precisión Entrenamiento", datosEntrenamiento);
+    crearGrafico("chartTest", "Precisión Test", datosTest);
+  });
+</script>
+
+
+
+<!-- SECCIÓN: Simulación de IA NUEVOOOOO (con redirección al demo) -->
+<section class="relative py-36 px-6 bg-gradient-to-br from-[#0f1234] via-[#10172a] to-[#0f1234] text-white overflow-hidden">
+
+  <!-- Fondo animado -->
+  <div class="absolute inset-0 opacity-30 pointer-events-none z-0">
+    <lottie-player
+      src="https://assets1.lottiefiles.com/packages/lf20_1pxqjqps.json"
+      background="transparent"
+      speed="1"
+      loop
+      autoplay
+      class="w-full h-full">
+    </lottie-player>
+  </div>
+
+  <!-- Contenido principal -->
+  <div class="relative z-10 max-w-6xl mx-auto text-center">
+
+    <!-- Título -->
+    <h2 class="text-5xl font-extrabold mb-6 drop-shadow-md tracking-tight" data-aos="fade-down">
+      Interactúa con AURELIA IA
+    </h2>
+
+    <!-- Subtítulo -->
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-aos-delay="100">
+      Explora el entorno de simulación o accede al dashboard para visualizar las predicciones.
+    </p>
+
+    <!-- Terminal visual -->
+    <div class="bg-white/5 backdrop-blur-sm border border-purple-400/30 rounded-2xl shadow-xl p-6 md:p-10 max-w-4xl mx-auto relative animate-pulse-slow" data-aos="zoom-in-up" data-aos-delay="200">
+      <p class="text-left font-mono text-green-400 text-sm leading-relaxed">
+        > Iniciando entorno de simulación... <br>
+        > Cargando modelo GRU-LSTM... <br>
+        > Procesando entrada multivariada... <br>
+        > Interfaz lista para predicción ✅
+      </p>
+    </div>
+
+    <!-- Botones -->
+    <div class="mt-12 flex flex-col md:flex-row justify-center gap-6" data-aos="fade-up" data-aos-delay="400">
+      <!-- Botón Demo -->
+      <div>
+        <a href="/simulation"
+           onclick="leerMensaje('Bienvenido al Demo Interactivo de Aurelia IA. Puedes explorar predicciones financieras generadas por modelos avanzados.')"
+           class="inline-block bg-purple-600 hover:bg-purple-700 transition px-8 py-3 rounded-full text-lg font-semibold shadow-lg animate-bounce hover:animate-none">
+          Ir al Demo Interactivo ⚡
+        </a>
+        <p class="text-sm text-gray-400 mt-2">Simula una predicción paso a paso.</p>
+      </div>
+
+      <!-- Botón Dashboard -->
+      <div>
+        <a href="/dashboard"
+           onclick="leerMensaje('Estás entrando al Dashboard de Resultados de Aurelia IA. Revisa métricas, predicciones y análisis visuales.')"
+           class="inline-block bg-emerald-600 hover:bg-emerald-700 transition px-8 py-3 rounded-full text-lg font-semibold shadow-lg">
+          Ver Dashboard de Resultados 📊
+        </a>
+        <p class="text-sm text-gray-400 mt-2">Explora las métricas y gráficas del modelo.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Animación de pulso lento -->
+<style>
+  @keyframes pulseSlow {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(168, 85, 247, 0.4); }
+    50% { box-shadow: 0 0 15px 5px rgba(168, 85, 247, 0.5); }
+  }
+  .animate-pulse-slow {
+    animation: pulseSlow 3s infinite;
+  }
+</style>
+
+<!-- SCRIPT: voz tipo IA solo al hacer clic -->
+<script>
+  function leerMensaje(texto) {
+    const mensaje = new SpeechSynthesisUtterance(texto);
+    mensaje.lang = 'es-ES';
+    mensaje.pitch = 1.1;
+    mensaje.rate = 0.95;
+    window.speechSynthesis.cancel(); // Detiene cualquier lectura anterior
+    window.speechSynthesis.speak(mensaje);
+  }
+</script>
+
+<!-- Lottie CDN -->
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+
+
+<!-- SECCIÓN: Análisis del proyecto -->
+<section class="py-32 bg-gradient-to-b from-[#10172a] to-[#0f1234] text-white px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold text-center mb-16" data-aos="fade-down">Análisis General del Proyecto</h2>
+
+    <!-- Contenedor de insights -->
+    <div class="grid grid-cols-2 md:grid-cols-2 gap-12 text-center" data-aos="fade-up" data-aos-delay="100">
+      
+      <!-- Insight 1 -->
+      <div class="bg-white/5 p-6 rounded-3xl backdrop-blur-lg border border-white/10 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2 text-pink-400">Modelos Evaluados</h3>
+        <p class="text-gray-300 text-sm">LSTM, GRU, GRU (2 capas), LSTM (2 capas), TCN. Se exploraron diferentes arquitecturas y profundidades.</p>
+      </div>
+
+      <div class="bg-white/5 p-6 rounded-3xl backdrop-blur-lg border border-white/10 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2 text-yellow-300">Modelos Finales</h3>
+        <p class="text-gray-300 text-sm"><span class="text-yellow-300">LSTM 1L:</span>   AAPL, GOOG, MSFT, META y NVDA</p>
+        <p class="text-gray-300 text-sm"><span class="text-yellow-300">LSTM 2L:</span>  AMZN</p>
+        <p class="text-gray-300 text-sm"><span class="text-yellow-300">GRU 1L:</span>  NFLX</p>
+      </div>
+
+      <!-- Insight 2 -->
+      <div class="bg-white/5 p-6 rounded-3xl backdrop-blur-lg border border-white/10 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2 text-purple-400">Precisión del Modelo</h3>
+        <p class="text-gray-300 text-sm">Los modelos alcanzaron niveles de predicción estables con bajos errores en MAPE, destacando LSTM-1L y GRU-1L.</p>
+      </div>
+
+      <!-- Insight 3 -->
+      <div class="bg-white/5 p-6 rounded-3xl backdrop-blur-lg border border-white/10 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold mb-2 text-blue-400">Visualización Intuitiva</h3>
+        <p class="text-gray-300 text-sm">Los resultados fueron presentados en gráficos comparativos y líneas temporales.</p>
+      </div>
+    </div>
+
+    <!-- Gráfico resumen -->
+    <div class="mt-20" data-aos="fade-up" data-aos-delay="300">
+      <canvas id="graficoResumen" class="w-full max-w-4xl mx-auto"></canvas>
+    </div>
+
+    <!-- Cierre -->
+    <div class="text-center mt-16" data-aos="fade-up" data-aos-delay="400">
+      <p class="text-gray-400 max-w-xl mx-auto text-sm">
+        Este proyecto demuestra la capacidad de los modelos de deep learning para anticipar el comportamiento del mercado. La combinación de arquitectura, visualización y análisis permitió resultados claros, precisos e interpretables.
+      </p>
+    </div>
+  </div>
+  <div class="max-w-4xl mx-auto" data-aos="zoom-in-up">
+
+    <!-- Lottie de cierre EMOCIONAL FUNCIONAL -->
+    <div class="mb-12 flex justify-center">
+      <lottie-player
+        src="https://assets6.lottiefiles.com/packages/lf20_4kx2q32n.json"
+        background="transparent"
+        speed="1"
+        loop
+        autoplay
+        style="width: 250px; height: 250px;">
+      </lottie-player>
+    </div>
+
+    <!-- Mensaje final -->
+     <h2 class="text-4xl font-extrabold mb-6 leading-snug drop-shadow-lg text-center">
+      Conclusiones que transforman decisiones.
+    </h2>
+
+
+    <p class="text-gray-300 text-lg mb-10 max-w-2xl mx-auto">
+      Explora el análisis completo del proyecto, desde la hipótesis hasta los resultados finales y aprendizajes clave.
+    </p>
+
+  <!-- Botón al documento centrado -->
+  <div class="flex justify-center mt-8">
+    <a href="https://drive.google.com/drive/folders/1yeHp-pmylBfzj9S6i5--K9jV8NxGHbgW?usp=drive_link" rel="noopener noreferrer" target="_blank"
+      class="inline-block bg-emerald-600 hover:bg-emerald-700 transition px-8 py-3 rounded-full text-lg font-medium shadow-lg">
+      Ver informe final 📄
+    </a>
+  </div>
+</section>
+
+<!-- SCRIPT: gráfico comparativo resumen -->
+<script>
+  const ctxResumen = document.getElementById('graficoResumen').getContext('2d');
+  const resumenChart = new Chart(ctxResumen, {
+    type: 'bar',
+    data: {
+      labels: ['GRU 1L', 'LSTM 1L', 'TCN', 'GRU 2L', 'LSTM 2L'],
+      datasets: [
+        {
+          label: 'Error en Entrenamiento (MAPE)',
+          data: [0.51, 0.62, 0.79, 0.65, 0.66],
+          backgroundColor: 'rgba(96, 165, 250, 0.7)'
+        },
+        {
+          label: 'Error en Test (MAPE)',
+          data: [0.41, 0.28, 1.03, 0.53, 0.46],
+          backgroundColor: 'rgba(251, 191, 36, 0.7)'
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#ffffff',
+            font: { size: 14 }
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#374151' }
+        },
+        y: {
+          ticks: { color: '#ccc' },
+          grid: { color: '#374151' }
+        }
+      }
+    }
+  });
+</script>
+</section>
+
+
+<p class="text-gray-400 italic mt-10 max-w-2xl mx-auto">
+  “El futuro no se predice, se entrena. Nuestra IA es solo el comienzo de una nueva visión financiera.”
+</p>
+
+
+
+
+<div class="mt-8 flex justify-center gap-4 text-gray-400">
+  <a href="https://github.com/JuanCorredor2023/inverBot" target="_blank" rel="noopener noreferrer" class="hover:text-white">GitHub</a>
+  <a href="/about_us" class="hover:text-white">Contacto</a>
+</div>
+
+</section>
+
 {% endblock %}

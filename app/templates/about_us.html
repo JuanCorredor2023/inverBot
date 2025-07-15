@@ -2,28 +2,59 @@
 {% block title %}Nosotros – AI Stock Predictor{% endblock %}
 
 {% block content %}
-<section class="py-5 bg-light text-black">
-  <div class="container">
-    <h2 class="text-center mb-5">Nuestro equipo</h2>
-    <div class="row g-4 text-center">
-      {% set members = [
-        {'name': 'María López', 'role': 'ML Engineer', 'img': 'https://via.placeholder.com/150'},
-        {'name': 'Juan Pérez', 'role': 'Data Scientist', 'img': 'https://via.placeholder.com/150'},
-        {'name': 'Ana Gómez', 'role': 'Backend Engineer', 'img': 'https://via.placeholder.com/150'},
-        {'name': 'Carlos Ruiz', 'role': 'DevOps & Frontend', 'img': 'https://via.placeholder.com/150'},
-      ] %}
-      {% for m in members %}
-      <div class="col-sm-6 col-lg-3">
-        <div class="card h-100 shadow-sm border-0">
-          <img src="{{ m.img }}" class="card-img-top" alt="{{ m.name }}" />
-          <div class="card-body bg-black text-white">
-            <h5 class="card-title">{{ m.name }}</h5>
-            <p class="card-text">{{ m.role }}</p>
-          </div>
+<section class="py-24 px-6  text-gray-200">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      Sobre <span class="text-accent">Nosotros</span>
+    </h2>
+    <p class="text-gray-400 mb-12 max-w-2xl mx-auto">
+      Somos un equipo multidisciplinario enfocado en crear soluciones inteligentes que transforman datos en decisiones.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+
+      <div class="bg-[#10172a] rounded-xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fade-in">
+        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 bg-gray-800">
+          <img src="/static/public/jac.png" alt="Foto Juan Andrés" class="object-cover w-full h-full">
         </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Juan Andrés Corredor Ojeda</h3>
+        <p class="text-gray-400 text-sm">
+          Enfocado en desarrollo de modelos de aprendizaje profundo e integración tecnológica.
+        </p>
       </div>
-      {% endfor %}
+
+      <div class="bg-[#10172a] rounded-xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fade-in">
+        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 bg-gray-800">
+          <img src="/static/public/st.png" alt="Foto Stiven" class="object-cover w-full h-full">
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Stiven Esneider Pardo Gutiérrez</h3>
+        <p class="text-gray-400 text-sm">
+          Especialista en backend, procesamiento de datos y estructuración de soluciones escalables.
+        </p>
+      </div>
+
+      <div class="bg-[#10172a] rounded-xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fade-in">
+        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 bg-gray-800">
+          <img src="static/public/js.png" alt="Foto Johann" class="object-cover w-full h-full">
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Johann Camilo Soracá Zea</h3>
+        <p class="text-gray-400 text-sm">
+          Desarrollador enfocado en ciencia de datos y visualización interactiva.
+        </p>
+      </div>
+
+      <div class="bg-[#10172a] rounded-xl p-6 shadow-lg transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl animate-fade-in">
+        <div class="w-24 h-24 mx-auto rounded-full overflow-hidden mb-4 bg-gray-800">
+          <img src="static/public/lc.png" alt="Foto Lukas" class="object-cover w-full h-full">
+        </div>
+        <h3 class="text-white text-lg font-semibold mb-2">Lukas Daniel Castellanos Cabarcas</h3>
+        <p class="text-gray-400 text-sm">
+          Responsable de integración de plataformas, estrategia de innovación y gestión de proyectos.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
+
 {% endblock %}

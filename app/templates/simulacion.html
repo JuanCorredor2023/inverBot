@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block title %}Análisis Predictivo{% endblock %}
+{% block head_extra %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center text-white">
+  <h1 class="display-5 fw-bold mb-2 gradient-text text-6xl">Simulación</h1>
+  <p class="lead mb-4">
+    Este módulo simula como se veria un mes de trading con las predicciones. Al empezar la simulación veras como el precio predicho se pinta en la hora de adelante y se toman decisiones con nuestra estrategia. La estrategia consta en comprar 20% del efectivo si el precio va a subir y vender 20% de las acciones si va a bajar <br>(para mas detalle ir al final de la pagina)
+  </p>
+  <p class="small mb-4 text-white">
+    Tener en cuenta que la estrategia mostrada tiene como fin mostrar el comportamiento del modelo, no es una estrategia diseñada para ser rentable.
+  </p>
+</section>
+
+
+<section class="pb-5">
+  <div class="container">
+    <div class="card bg-dark border-0 shadow-sm p-4">
+      <div class="row g-3 align-items-center mb-3">
+        <div class="col-md-4 col-sm-6">
+          <select id="tickerSelect" class="form-select form-select-lg bg-black text-white"></select>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <select id="datasetSelect" class="form-select form-select-lg bg-black text-white">
+            <option value="1mo">1 mes no visto</option>
+          </select>
+        </div>
+        <div class="col-md-2 col-6 d-grid">
+          <button id="updateBtn" class="btn btn-primary btn-lg"><i class="bi bi-arrow-clockwise"></i></button>
+        </div>
+        <div class="col-md-2 col-6 d-grid">
+          <button id="simulateBtn"
+                  class="btn btn-warning btn-lg"
+                  data-bs-toggle="modal"
+                  data-bs-target="#simulateModal">
+            Iniciar simulación
+          </button>
+        </div>
+        <!-- NUEVA fila: boton descargar BD actualizada -->
+        <div class="col-md-4 col-sm-12 mt-3">
+          <a id="downloadUpdatedBtn"
+             class="btn btn-outline-info btn-lg w-100"
+             href="#"
+             data-bs-toggle="tooltip"
+             data-bs-placement="top"
+             title="Genera un CSV de 1 mes (velas de 1 h) para el ticker seleccionado, añade sentimiento y predicciones, y lo descarga.">
+            Generar y descargar BD del último mes&nbsp;(predicciones)
+            <i class="bi bi-cloud-arrow-down ms-1"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Gráfica paso a paso de la simulación -->
+      <canvas id="simChartCanvas" class="w-100 mt-4" style="min-height:120px;"></canvas>
+    </div>
+  </div>
+  <!-- Panel estado simulación -->
+  <div id="simPanel" class="card bg-secondary bg-opacity-25 text-center text-white mb-4 d-none">
+     <div class="card-body">
+       <h5 class="card-title">Estado de la simulación</h5>
+       <p class="mb-0">
+         Efectivo: <span id="simCash">$--</span> •
+         Acciones: <span id="simShares">--</span> •
+         Equity: <span id="simEquity">$--</span>
+       </p>
+     </div>
+   </div>
+     <!-- Modal configuración simulación -->
+  <div class="modal fade" id="simulateModal" tabindex="-1"
+       aria-labelledby="simulateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="simulateModalLabel">Configurar simulación</h5>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="initCash" class="form-label">Efectivo inicial (USD)</label>
+            <input type="number" id="initCash" class="form-control"
+                   value="10000" min="0" step="any">
+          </div>
+          <div class="mb-3">
+            <label for="initShares" class="form-label">Acciones iniciales</label>
+            <input type="number" id="initShares" class="form-control"
+                   value="0" min="0" step="any">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button id="startSimBtn" class="btn btn-warning">Comenzar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal configuración simulación -->
+  <div class="modal fade" id="simulateModal" tabindex="-1"
+       aria-labelledby="simulateModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header">
+          <h5 class="modal-title" id="simulateModalLabel">Configurar simulación</h5>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="initCash" class="form-label">Efectivo inicial (USD)</label>
+            <input type="number" id="initCash" class="form-control"
+                   value="10000" min="0" step="any">
+          </div>
+          <div class="mb-3">
+            <label for="initShares" class="form-label">Acciones iniciales</label>
+            <input type="number" id="initShares" class="form-control"
+                   value="0" min="0" step="any">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button id="startSimBtn" class="btn btn-warning">Comenzar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-5 text-center text-white">
+  <h1 class="display-5 fw-bold mb-2">¿Cómo usar la <span class="gradient-text">Simulación</span>?</h1>
+  <ul class="list-unstyled text-white mb-4">
+    <li>Escoge el ticker y el tiempo, <span class="gradient-text">o dale al botón generar y descargar bd del ultimo més</span> para tener datos actualizados</li>
+    <li>Haz clic en <span class="gradient-text">Iniciar simulación</span> para comenzar el proceso.</li>
+    <li>Configura el <span class="gradient-text">Efectivo inicial</span> y las <span class="gradient-text">Acciones iniciales</span> en el modal de configuración.</li>
+    <li>Observa la gráfica animada que muestra precio real vs precio predicho en cada paso.</li>
+    <li>Consulta el <span class="gradient-text">Estado de la simulación</span> al final de la pagina para ver resumen de efectivo, acciones y equity.</li>
+  </ul>
+</section>
+{% endblock %}
+
+{% block scripts_extra %}
+<script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+{% endblock %}
