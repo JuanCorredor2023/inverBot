@@ -1,12 +1,12 @@
 {
     "builds": [
       {
-        "src": "app.py",
+        "src": "wsgi.py",
         "use": "@vercel/python",
         "config": { "installCommand": "pip install --no-cache-dir -r requirements.txt" }
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "app.py" }
+      { "src": "/(.*)", "dest": "wsgi.py" }
     ]
   }
