@@ -5,7 +5,9 @@ __pycache__/
 # Virtual environments
 venv/
 .env/
-
+*.pyc
+*.joblib
+.pytest_cache/
 # Flask & runtime files
 instance/
 *.log
