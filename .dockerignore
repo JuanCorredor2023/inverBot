@@ -1,0 +1,54 @@
+# entorno virtual y caches
+venv/
+__pycache__/
+*.py[cod]
+*.cache
+pip-wheel-metadata/
+*.so
+
+# archivos de sistema
+.DS_Store
+*.log
+
+# datos pesados, tests, docs
+data/
+tests/
+docs/
+
+
+# Virtual environments
+venv/
+.env/
+*.pyc
+*.joblib
+.pytest_cache/
+# Flask & runtime files
+instance/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.swp
+
+# Node (in case you add JS tooling later)
+node_modules/
+
+# Coverage / test output
+htmlcov/
+.coverage*
+
+# Build / distribution
+build/
+dist/
+
+# Environment variables or secrets
+.env
+.env.*
+
+# MacOS metadata
+Icon?
