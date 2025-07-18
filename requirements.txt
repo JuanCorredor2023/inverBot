@@ -51,7 +51,7 @@ regex==2024.11.6
 requests==2.32.4
 rich==14.0.0
 safetensors==0.5.3
-scikit-learn==1.7.0
+scikit-learn==1.6.1
 scipy==1.16.0
 setuptools==80.9.0
 six==1.17.0
